@@ -52,6 +52,16 @@
             <label class="form-label">state</label>
             <input type="text" name="title" class="form-control" placeholder="Title" value="{{ $Voters->state_name }}" readonly>
         </div>
+        <div class="col mb-3">
+             <label class="form-label">Gender</label>
+        <select name="gender" class="form-control" id="gender" readonly>
+                <option value="">Select Gender</option>
+                <option value="1" {{ $Voters->gender == 1 ? 'selected' : '' }}>Male</option>
+                <option value="2" {{ $Voters->gender == 2 ? 'selected' : '' }}>Female</option>
+                <option value="3" {{ $Voters->gender == 3 ? 'selected' : '' }}>Other</option>
+            </select>
+        </div>
+
      </div>
 
 @endsection
