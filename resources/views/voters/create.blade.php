@@ -39,9 +39,11 @@
                
             </div>
         </div>
-
+        
+        <br>
         <div class="row mb-3">
             <div class="col">
+                <label for="state_id" class="form-label">State</label>
                 <select name="state_id" class="form-control" id="state_id">
                     <option value="">Select State</option>
                     @foreach($states as $state)
@@ -51,6 +53,8 @@
             </div>
 
              <div class="col">
+                <label for="district_id" class="form-label">District</label>
+
                 <select name="district_id" class="form-control" id="district_id">
                     <option value="">Select District</option>
                     @foreach($districts as $district)
@@ -64,8 +68,19 @@
 
          <div class="row mb-3">
               <div class="col">
-                <input type="text" name="taluk" class="form-control" placeholder="taluk">
+                    <label for="taluk" class="form-label">Taluk</label>
+                <input type="text" name="taluk" class="form-control" placeholder="taluk" id="taluk">
                 
+            </div>
+               <div class="col">
+                <label for="gender" class="form-label">Gender</label>
+
+                <select name="gender" class="form-control" id="gender">
+                    <option value="">Select Gender</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                            <option value="3">Other</option>
+                </select>
             </div>
         </div>
 

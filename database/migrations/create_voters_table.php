@@ -24,6 +24,7 @@ return new class extends Migration
 
             $table->unsignedBigInteger('state_id')->nullable();
             $table->foreign('state_id')->references('id')->on('states')->onDelete('set null');
+            $table->unsignedTinyInteger('gender')->nullable();
 
             $table->timestamps();
         });

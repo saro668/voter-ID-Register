@@ -66,6 +66,7 @@ class VotersController extends Controller
             'taluk' => 'required|string|max:100',
             'district_id' => 'required|integer',
             'state_id' => 'required|integer',
+            'gender' => 'required|integer',
             'dob' => 'required|date|before_or_equal:' . $eighteenYearsAgo,
         ], 
         [

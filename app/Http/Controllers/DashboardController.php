@@ -18,6 +18,11 @@ class DashboardController extends Controller
 
         $todayVotersCount  = Voter::getTodayRegisterVoteCount();
 
-        return view('dashboard', compact('totalVotersCount', 'todayVotersCount'));
+        $maleCount  = Voter::getCountGenderBased(Voter::MALE);
+        $femaleCount  = Voter::getCountGenderBased(Voter::FEMALE);
+        $otherCount  = Voter::getCountGenderBased(Voter::OTHER);
+
+
+        return view('dashboard', compact('totalVotersCount', 'todayVotersCount', 'maleCount', 'femaleCount', 'otherCount'));
     }
 }

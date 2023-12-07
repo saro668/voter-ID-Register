@@ -10,6 +10,10 @@ use Carbon\Carbon;
 class Voter extends Model
 {
     use HasFactory;
+
+    const MALE = 1;
+    const FEMALE = 2;
+    const OTHER = 3;
  
     protected $fillable = [
         'first_name',
@@ -21,7 +25,8 @@ class Voter extends Model
         'taluk',
         'district_id',
         'state_id',
-        'voter_identification_number'
+        'voter_identification_number',
+        'gender',
         
     ];
 
@@ -32,6 +37,10 @@ class Voter extends Model
         static::creating(function ($voter) {
             $voter->voter_identification_number = str_pad(mt_rand(1, 99999999), 8, '0', STR_PAD_LEFT); // Generates an 8-digit unique ID
         });
+    }
+
+    public static function getCountGenderBased($type) {
+        return self::where('gender', $type)->count();
     }
 
     public static function getCount() {

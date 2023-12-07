@@ -43,12 +43,21 @@ class VotersExport implements FromCollection, WithHeadings
             'taluk',
             'district_name',
             'state_name',
+            'gender',
             'voters.created_at',
         ]);
 
 
         $voters->transform(function ($voter) {
             $voter->dob = Carbon::parse($voter->dob)->format('d/m/Y');
+
+            if ($voter->gender == 1) {
+                $voter->gender = 'Male';
+            } elseif ($voter->gender == 2) {
+                $voter->gender = 'Female';
+            } else {
+                $voter->gender = 'Other';
+            }
             return $voter;
         });
 
@@ -68,6 +77,7 @@ class VotersExport implements FromCollection, WithHeadings
             'Taluk',
             'District',
             'State',
+            'Gender',
             'created_at',
         ];
     }
